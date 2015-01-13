@@ -15,7 +15,7 @@ Starting the services
 
 > $HDFS_HOME/sbin/start-dfs.sh
 
-Note: On MacOS, make sure SSH is started. Control Panel/Sharing/Remote Login [ON]
+Note: On MacOS, make sure SSH is started. System Preferences/Sharing/Remote Login [ON]
 
  Checking Services are running
 
@@ -62,24 +62,23 @@ Create the user directory along with the owner directory
 > hdfs dfs -mkdir -p /user/${USER}
 
 
-# Running the example
+## Running the example
 
-# Package a jar containing your application
+### Package a jar containing your application
 > sbt package
 
 ...
 [info] Packaging {..}/{..}/target/scala-2.10/simple-project_2.10-1.0.jar
 
-# Set SPARK HOME
+### Set SPARK HOME
 
 > SPARK_HOME=~/bin/local/bigdata/spark
 
-# Use spark-submit to run your application
+### Use spark-submit to run your application
 > ${SPARK_HOME}/bin/spark-submit --class "SimpleApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar
 
 ...
-Lines with a: 46, Lines with b: 23
-
+Lines with a: 41, Lines with b: 17
 
 
 ## License
