@@ -80,6 +80,10 @@ Create the user directory along with the owner directory
 ...
 Lines with a: 41, Lines with b: 17
 
+## Running Interactive Shell
+
+> ${SPARK_HOME}/bin/spark-shell
+
 
 ## License
 
