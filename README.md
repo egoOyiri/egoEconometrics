@@ -61,6 +61,28 @@ Create the user directory along with the owner directory
 
 > hdfs dfs -mkdir -p /user/${USER}
 
+
+# Running the example
+
+# Package a jar containing your application
+> sbt package
+...
+[info] Packaging {..}/{..}/target/scala-2.10/simple-project_2.10-1.0.jar
+
+# Set SPARK HOME
+
+> SPARK_HOME=~/bin/local/bigdata/spark
+
+# Use spark-submit to run your application
+> ${SPARK_HOME}/bin/spark-submit \
+  --class "SimpleApp" \
+  --master local[4] \
+  target/scala-2.10/simple-project_2.10-1.0.jar
+...
+Lines with a: 46, Lines with b: 23
+
+
+
 ## License
 
 Copyleft © 2014 EgoOyiri [AfricaCoin]
