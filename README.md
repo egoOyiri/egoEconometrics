@@ -84,6 +84,16 @@ Lines with a: 41, Lines with b: 17
 
 > ${SPARK_HOME}/bin/spark-shell
 
+## Running Spark Streaming 
+
+### You will first need to run Netcat (a small utility found in most Unix-like systems) as a data server by using
+
+> nc -lk 9999
+
+### Then, in a different terminal, you can start the example by using
+
+> ${SPARK_HOME}/bin/spark-submit --class "QuickStreamingApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar localhost 9999
+
 
 ## License
 
