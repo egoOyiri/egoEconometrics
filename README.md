@@ -66,6 +66,7 @@ Create the user directory along with the owner directory
 
 # Package a jar containing your application
 > sbt package
+
 ...
 [info] Packaging {..}/{..}/target/scala-2.10/simple-project_2.10-1.0.jar
 
@@ -74,10 +75,8 @@ Create the user directory along with the owner directory
 > SPARK_HOME=~/bin/local/bigdata/spark
 
 # Use spark-submit to run your application
-> ${SPARK_HOME}/bin/spark-submit \
-  --class "SimpleApp" \
-  --master local[4] \
-  target/scala-2.10/simple-project_2.10-1.0.jar
+> ${SPARK_HOME}/bin/spark-submit --class "SimpleApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar
+
 ...
 Lines with a: 46, Lines with b: 23
 
