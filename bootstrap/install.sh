@@ -31,17 +31,23 @@ rm ${ROOT_DIST}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_SPARK_VERSION}.tgz
 
 # Setup passphraseless ssh
 # If you cannot ssh to $hostname without a passphrase, execute the following commands:
-rm ~/.ssh/id_dsa
-rm ~/.ssh/id_dsa.pub
+rm ~/.ssh/id_dsa     || { echo "rm ~/.ssh/id_dsa command failed"; }
+rm ~/.ssh/id_dsa.pub || { echo "rm ~/.ssh/id_dsa.pub command failed"; }
 ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
 cat ~/.ssh/id_dsa.pub > ~/.ssh/authorized_keys 
 
 # enable ssh localhost access for Hadoop Services
-rm ~/.ssh/config
+rm ~/.ssh/config     || { echo "rm ~/.ssh/config command failed"; }
 echo "Host localhost"                    >  ~/.ssh/config
 echo "HostName ${HOSTNAME}"              >> ~/.ssh/config
 echo "Port 22"                           >> ~/.ssh/config
+case $system in
+Darwin)
 echo "User ${LOGNAME}"                   >> ~/.ssh/config
+;;
+*)
+echo "User ${USERNAME}"                  >> ~/.ssh/config
+;;
 
 # The below example were taken from Hadoop websites
 # For some reasons , the hadoop-site.xml is split in multiple files
@@ -67,7 +73,7 @@ Darwin)
 /usr/bin/sed -e '/<configuration>/ a \'$'\n <property><name>mapreduce.framework.name</name><value>yarn</value></property>'                          < ${ROOT_DIST}/hadoop/etc/hadoop/mapred-site.xml.orig > ${ROOT_DIST}/hadoop/etc/hadoop/mapred-site.xml
 /usr/bin/sed -e '/<configuration>/ a \'$'\n <property><name>yarn.nodemanager.aux-services</name><value>mapreduce_shuffle</value></property>'        < ${ROOT_DIST}/hadoop/etc/hadoop/yarn-site.xml.orig   > ${ROOT_DIST}/hadoop/etc/hadoop/yarn-site.xml
 ;;
-Linux)
+*)
 sed -e '/<configuration>/ a \\t <property>\n\t\t<name>fs.defaultFS<\/name>\n\t\t<value>hdfs:\/\/'${HOSTNAME}':9000<\/value>\n\t<\/property>'        < ${ROOT_DIST}/hadoop/etc/hadoop/core-site.xml.orig   > ${ROOT_DIST}/hadoop/etc/hadoop/core-site.xml
 sed -e '/<configuration>/ a \\t <property>\n\t\t<name>dfs.replication<\/name>\n\t\t<value>1<\/value>\n\t<\/property>'                               < ${ROOT_DIST}/hadoop/etc/hadoop/hdfs-site.xml.orig   > ${ROOT_DIST}/hadoop/etc/hadoop/hdfs-site.xml
 sed -e '/<configuration>/ a \\t <property>\n\t\t<name>mapreduce.framework.name<\/name>\n\t\t<value>yarn<\/value>\n\t<\/property>'                   < ${ROOT_DIST}/hadoop/etc/hadoop/mapred-site.xml.orig > ${ROOT_DIST}/hadoop/etc/hadoop/mapred-site.xml

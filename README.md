@@ -1,7 +1,16 @@
 egoEconomotrics
 ============
 
-# this project uses Apache Spark run on a Single Node Hadoop/Yarn
+This project uses Apache Spark run on a Single Node Hadoop/Yarn
+
+
+* Prerequisites:
+- wget
+- java
+- *nix - Darwin, Linux, Cygwin
+
+* Warning:
+This will mess up with your ~/.ssh folder
 
 To run the install:
 
