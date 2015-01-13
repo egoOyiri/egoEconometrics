@@ -68,7 +68,7 @@ Create the user directory along with the owner directory
 > sbt package
 
 ...
-[info] Packaging {..}/{..}/target/scala-2.10/simple-project_2.10-1.0.jar
+[success] Total time: ...
 
 ### Set SPARK HOME
 
