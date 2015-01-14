@@ -12,6 +12,9 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
 * Warning:
 This will mess up with your ~/.ssh folder
 
+Install SSH Daemon on Cygwin
+http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
+
 To run the install:
 
 > bootstrap/install.sh
