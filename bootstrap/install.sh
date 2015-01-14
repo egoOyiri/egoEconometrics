@@ -48,6 +48,7 @@ echo "User ${LOGNAME}"                   >> ~/.ssh/config
 *)
 echo "User ${USERNAME}"                  >> ~/.ssh/config
 ;;
+esac
 
 # The below example were taken from Hadoop websites
 # For some reasons , the hadoop-site.xml is split in multiple files
