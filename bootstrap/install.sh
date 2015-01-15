@@ -41,6 +41,9 @@ rm ~/.ssh/config     || { echo "rm ~/.ssh/config command failed"; }
 echo "Host localhost"                    >  ~/.ssh/config
 echo "HostName ${HOSTNAME}"              >> ~/.ssh/config
 echo "Port 22"                           >> ~/.ssh/config
+
+system=`uname -s`
+
 case $system in
 Darwin)
 echo "User ${LOGNAME}"                   >> ~/.ssh/config
@@ -66,7 +69,6 @@ cp ${ROOT_DIST}/hadoop/share/hadoop/common/templates/core-site.xml ${ROOT_DIST}/
 # conf/yarn-site.xml:
 cp ${ROOT_DIST}/hadoop/share/hadoop/common/templates/core-site.xml ${ROOT_DIST}/hadoop/etc/hadoop/yarn-site.xml.orig
 
-system=`uname -s`
 case $system in
 Darwin)
 /usr/bin/sed -e '/<configuration>/ a \'$'\n <property><name>fs.defaultFS</name><value>hdfs:\/\/'${HOSTNAME}':9000</value></property>'               < ${ROOT_DIST}/hadoop/etc/hadoop/core-site.xml.orig   > ${ROOT_DIST}/hadoop/etc/hadoop/core-site.xml
