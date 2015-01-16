@@ -4,22 +4,22 @@ egoEconomotrics
 This project uses Apache Spark run on a Single Node Hadoop/Yarn
 
 # Warning:
-* Do no use this script under AWS it messes the .ssh folder
+* Carefully use this script under AWS it messes the .ssh folder by adding a DSA PassPhraseLess key in .ssh/authorized_keys
+      Recommended reading for AWS http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
+
+# Kwown issues:
 * Not working well under Cygwin
+  Install SSH Daemon on Cygwin <br>
+  http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
 
-
-
-
-* Prerequisites:
+# Prerequisites:
 - wget
-- java
+- java (JVM)
 - *nix - Darwin, Linux, Cygwin
+* sbt to run the examples
 
 * Warning:
 This will mess up with your ~/.ssh folder
-
-Install SSH Daemon on Cygwin <br>
-http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
 
 To run the install:
 
@@ -46,23 +46,19 @@ Note: On MacOS, make sure SSH is started. System Preferences/Sharing/Remote Logi
 
 ---
 
-Monitoring DFS Health
+### Monitoring DFS Health
 
 Browsing the File System's health
 
 http://localhost:50070
 
 
-Yarn Daemons
+### Yarn Daemons
 Start ResourceManager daemon and NodeManager daemon:
 
 > $HDFS_HOME/sbin/start-yarn.sh
 
-When you're done, stop the daemons with:
-
-> $HDFS_HOME/sbin/stop-yarn.sh
-
-Monitoring Resource Manager
+### Monitoring Resource Manager
 
 If you want to look at the running jobs or already executed (Jobwatch Equivalent)
 
@@ -111,6 +107,14 @@ Lines with a: 41, Lines with b: 17
 ### Then, in a different terminal, you can start the example by using
 
 > ${SPARK_HOME}/bin/spark-submit --class "QuickStreamingApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar localhost 9999
+
+# Stopping the Services
+
+When you're done, stop the daemons with:
+
+> $HDFS_HOME/sbin/stop-yarn.sh
+
+> $HDFS_HOME/sbin/stop-dfs.sh
 
 
 ## License

@@ -34,7 +34,7 @@ rm ${ROOT_DIST}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_SPARK_VERSION}.tgz
 rm ~/.ssh/id_dsa     || { echo "rm ~/.ssh/id_dsa command failed"; }
 rm ~/.ssh/id_dsa.pub || { echo "rm ~/.ssh/id_dsa.pub command failed"; }
 ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
-cat ~/.ssh/id_dsa.pub > ~/.ssh/authorized_keys 
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys 
 
 # enable ssh localhost access for Hadoop Services
 rm ~/.ssh/config     || { echo "rm ~/.ssh/config command failed"; }
