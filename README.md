@@ -16,8 +16,15 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
      http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html<br>
   - After the install change the ${JAVA_HOME} with /usr/lib/jvm/java-8-oracle<br>
      in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
-  - Micro Instance out of memory - add swap<br>  
-     http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html
+  - Micro Instance out of memory - add swap<br>
+     http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html<br>
+     Here are the commands to add a 1GB swap<br>
+    > sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024<br>
+    > sudo /sbin/mkswap /var/swap.1<br>
+    > sudo /sbin/swapon /var/swap.1<br>
+     To turn off the swap do the following:<br>
+    > sudo /sbin/swapoff /var/swap.1
+
 
 # Prerequisites:
 - wget
