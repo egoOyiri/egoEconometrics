@@ -45,7 +45,7 @@ echo "Port 22"                           >> ~/.ssh/config
 system=`uname -s`
 
 case $system in
-Darwin)
+Darwin | Linux)
 echo "User ${LOGNAME}"                   >> ~/.ssh/config
 ;;
 *)

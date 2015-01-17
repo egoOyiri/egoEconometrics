@@ -4,7 +4,7 @@ egoEconomotrics
 This project uses Apache Spark run on a Single Node Hadoop/Yarn
 
 # Warning:
-* Carefully use this script under AWS it messes the .ssh folder by adding a DSA PassPhraseLess key in .ssh/authorized_keys
+* Carefully use this script under AWS as it messes the .ssh folder by adding a DSA PassPhraseLess key in .ssh/authorized_keys<br>
       Recommended reading for AWS http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
 
 # Kwown issues:
@@ -84,11 +84,11 @@ Create the user directory along with the owner directory
 ...
 [success] Total time: ...
 
-### Set SPARK HOME
+#### Set SPARK HOME
 
 > SPARK_HOME=~/bin/local/bigdata/spark
 
-### Use spark-submit to run your application
+#### Use spark-submit to run your application
 > ${SPARK_HOME}/bin/spark-submit --class "SimpleApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar
 
 ...
@@ -100,11 +100,11 @@ Lines with a: 41, Lines with b: 17
 
 ## Running Spark Streaming 
 
-### You will first need to run Netcat (a small utility found in most Unix-like systems) as a data server by using
+* You will first need to run Netcat (a small utility found in most Unix-like systems) as a data server by using
 
 > nc -lk 9999
 
-### Then, in a different terminal, you can start the example by using
+* Then, in a different terminal, you can start the example by using
 
 > ${SPARK_HOME}/bin/spark-submit --class "QuickStreamingApp" --master local[4] target/scala-2.10/egoeconometrics_2.10-0.1-SNAPSHOT.jar localhost 9999
 
