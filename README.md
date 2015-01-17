@@ -12,11 +12,12 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
   Install SSH Daemon on Cygwin <br>
   http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
 * Ubuntu EC2
-  After the install change the ${JAVA_HOME} in
-   ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh 
-  with /usr/lib/jvm/java-8-oracle
-  Install Java:
-  http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+  - Install Java:<br>
+     http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html<br>
+  - After the install change the ${JAVA_HOME} with /usr/lib/jvm/java-8-oracle<br>
+     in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
+  - Micro Instance out of memory - add swap<br>  
+     http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html
 
 # Prerequisites:
 - wget
