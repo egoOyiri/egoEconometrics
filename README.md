@@ -8,9 +8,11 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
       Recommended reading for AWS http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
 
 # Kwown issues:
-* Not working well under Cygwin
-  Install SSH Daemon on Cygwin <br>
-  http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
+* Not working under Cygwin
+  - Install and run SSH Daemon on Cygwin <br>
+     http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
+  - After the install change the ${JAVA_HOME} with i.e. /cygdrive/c/opt/bin/java<br>
+     in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
 * Ubuntu EC2
   - Install Java:<br>
      http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html<br>
@@ -19,11 +21,11 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
   - Micro Instance out of memory - add swap<br>
      http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html<br>
      Here are the commands to add a 1GB swap<br>
-    > sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024<br>
-    > sudo /sbin/mkswap /var/swap.1<br>
-    > sudo /sbin/swapon /var/swap.1<br>
+> sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024<br>
+> sudo /sbin/mkswap /var/swap.1<br>
+> sudo /sbin/swapon /var/swap.1<br>
      To turn off the swap do the following:<br>
-    > sudo /sbin/swapoff /var/swap.1
+> sudo /sbin/swapoff /var/swap.1
 
 
 # Prerequisites:
