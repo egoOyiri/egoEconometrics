@@ -31,6 +31,7 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
 # Prerequisites:
 - wget
 - java (JVM)
+      Add JAVA_HOME in profile (i.e. export JAVA_HOME=/usr/lib/jvm/java-8-oracle in .bashrc)
 - *nix - Darwin, Linux, Cygwin
 * sbt to run the examples
 
