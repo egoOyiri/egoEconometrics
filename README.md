@@ -4,39 +4,17 @@ egoEconomotrics
 This project uses Apache Spark run on a Single Node Hadoop/Yarn
 
 # Warning:
-* Carefully use this script under AWS as it messes the .ssh folder by adding a DSA PassPhraseLess key in .ssh/authorized_keys<br>
-      Recommended reading for AWS http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
-
-# Kwown issues:
-* Not working under Cygwin
-  - Install and run SSH Daemon on Cygwin <br>
-     http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
-  - After the install change the ${JAVA_HOME} with i.e. /cygdrive/c/opt/bin/java<br>
-     in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
-* Ubuntu EC2
-  - Install Java:<br>
-     http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html<br>
-  - After the install change the ${JAVA_HOME} with /usr/lib/jvm/java-8-oracle<br>
-     in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
-  - Micro Instance out of memory - add swap<br>
-     http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html<br>
-     Here are the commands to add a 1GB swap<br>
-> sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024<br>
-> sudo /sbin/mkswap /var/swap.1<br>
-> sudo /sbin/swapon /var/swap.1<br>
-     To turn off the swap do the following:<br>
-> sudo /sbin/swapoff /var/swap.1
-
+  This install will play with your ~/.ssh folder<br>
+  more specifically the <i>.ssh/authorized_keys</i> file
+  this will allow hadoop to run the <i>ssh localhost</i> command using  a DSA PassPhraseLess key
 
 # Prerequisites:
 - wget
 - java (JVM)
-      Add JAVA_HOME in profile (i.e. export JAVA_HOME=/usr/lib/jvm/java-8-oracle in .bashrc)
-- *nix - Darwin, Linux, Cygwin
+- *nix - Darwin, Cygwin (not yet)
 * sbt to run the examples
 
 * Warning:
-This will mess up with your ~/.ssh folder
 
 To run the install:
 
@@ -133,6 +111,32 @@ When you're done, stop the daemons with:
 
 > $HDFS_HOME/sbin/stop-dfs.sh
 
+# AWS Ubuntu
+
+* installing SBT<br>
+    http://www.scala-sbt.org/release/tutorial/Installing-sbt-on-Linux.html<br>
+* Install Java:<br>
+    - http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html<br>
+    - Add JAVA_HOME in profile (i.e. export JAVA_HOME=/usr/lib/jvm/java-8-oracle in .bashrc)<br>
+    - After the install change the ${JAVA_HOME} with /usr/lib/jvm/java-8-oracle<br>
+      in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
+* Micro Instance out of memory - add swap<br>
+     http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html<br>
+     Here are the commands to add a 1GB swap<br>
+> sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024<br>
+> sudo /sbin/mkswap /var/swap.1<br>
+> sudo /sbin/swapon /var/swap.1<br>
+     To turn off the swap do the following:<br>
+> sudo /sbin/swapoff /var/swap.1
+
+Recommended reading for AWS http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
+
+# Kwown issues:
+* Not working under Cygwin
+  - Install and run SSH Daemon on Cygwin <br>
+     http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm
+  - After the install change the ${JAVA_HOME} with i.e. /cygdrive/c/opt/bin/java<br>
+     in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
 
 ## License
 
