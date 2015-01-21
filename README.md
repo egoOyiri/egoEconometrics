@@ -1,33 +1,39 @@
 egoEconomotrics
 ============
 
-This project uses Apache Spark run on a Single Node Hadoop/Yarn
+This project uses Apache Spark run on a Single Node Hadoop/Yarn.
 
 # Warning:
   This install will play with your ~/.ssh folder, more specifically the <i>.ssh/authorized_keys</i> file<br>
   It will allow hadoop to run the <i>ssh localhost</i> command using  a DSA PassPhraseLess key
 
+* Defintion:
+  - Hadoop HDFS (Hadoop Distributed File System)<br>
+  - Yarn, MapReduce 2.0<br> 
+  - Spark general engine for large-scale data processing 
+
 # Prerequisites:
 - wget
 - java (JVM)
 - *nix - Darwin, Cygwin (not yet)
-* sbt to run the examples
+- sbt to run the Scala examples
 
 # Running the install:
 
 > ./bootstrap/install.sh
 
-Set the Hadoop Home
+## Hadoop NameNode Daemons
+
+- Set the Hadoop Home
 > HDFS_HOME=~/bin/local/bigdata/hadoop
 
-### NameNode Daemons
-Starting the services
+- Starting the services
 
 > $HDFS_HOME/sbin/start-dfs.sh
 
 Note: On MacOS, make sure SSH is started. System Preferences/Sharing/Remote Login [ON]
 
- Checking Services are running
+-  Checking Services are running
 
 > jps
 
@@ -46,7 +52,8 @@ http://localhost:50070
 
 
 ### Yarn Daemons
-Start ResourceManager daemon and NodeManager daemon:
+
+- Start ResourceManager daemon and NodeManager daemon:
 
 > $HDFS_HOME/sbin/start-yarn.sh
 
@@ -55,17 +62,21 @@ Start ResourceManager daemon and NodeManager daemon:
 If you want to look at the running jobs or already executed (Jobwatch Equivalent)
 
 http://localhost:8088
-Hadoop Distributed File System (Hadoop DFS) handling
-Create and Mount a new Hadoop DFS
 
-> hdfs namenode -format
+### Hadoop Distributed File System (Hadoop DFS) handling
+
+- Create and Mount a new Hadoop DFS
+
+> ${HDFS_HOME}/bin/hdfs namenode -format 
+
+Note: You need to restart HDFS
 
 
-Create a directory in Hadoop DFS
+- Create a directory in Hadoop DFS
 
 Create the user directory along with the owner directory
 
-> hdfs dfs -mkdir -p /user/${USER}
+> ${HDFS_HOME}/bin/hdfs dfs -mkdir -p /user/${USER}
 
 
 ## Running the example
