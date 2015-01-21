@@ -4,9 +4,8 @@ egoEconomotrics
 This project uses Apache Spark run on a Single Node Hadoop/Yarn
 
 # Warning:
-  This install will play with your ~/.ssh folder<br>
-  more specifically the <i>.ssh/authorized_keys</i> file
-  this will allow hadoop to run the <i>ssh localhost</i> command using  a DSA PassPhraseLess key
+  This install will play with your ~/.ssh folder, more specifically the <i>.ssh/authorized_keys</i> file<br>
+  It will allow hadoop to run the <i>ssh localhost</i> command using  a DSA PassPhraseLess key
 
 # Prerequisites:
 - wget
@@ -14,11 +13,9 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn
 - *nix - Darwin, Cygwin (not yet)
 * sbt to run the examples
 
-* Warning:
+# Running the install:
 
-To run the install:
-
-> bootstrap/install.sh
+> ./bootstrap/install.sh
 
 Set the Hadoop Home
 > HDFS_HOME=~/bin/local/bigdata/hadoop
