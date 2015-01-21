@@ -128,6 +128,7 @@ When you're done, stop the daemons with:
     - Add JAVA_HOME in profile (i.e. export JAVA_HOME=/usr/lib/jvm/java-8-oracle in .bashrc)<br>
     - After the install change the ${JAVA_HOME} with /usr/lib/jvm/java-8-oracle<br>
       in ~/bin/local/bigdata/hadoop/etc/hadoop/hadoop-env.sh <br>
+* Add a new spark user and allow remote connection
 * Micro Instance out of memory - add swap<br>
      http://developer24hours.blogspot.ca/2013/02/micro-instance-out-of-memory-add-swap.html<br>
      Here are the commands to add a 1GB swap<br>
