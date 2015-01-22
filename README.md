@@ -12,10 +12,14 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn.
   - Yarn, MapReduce 2.0<br> 
   - Spark general engine for large-scale data processing 
 
+* Languages:
+  - Scala, Java and Python
+
 # Prerequisites:
 - wget
 - java (JVM)
 - *nix - Darwin, Cygwin (not yet)
+- Python (is running Python)
 - sbt to run the Scala examples
 
 # Running the install:
@@ -99,7 +103,11 @@ Lines with a: 41, Lines with b: 17
 
 ## Running Interactive Shell
 
+* Scala
 > ${SPARK_HOME}/bin/spark-shell
+
+* Python
+> ${SPARK_HOME}/bin/bin/pyspark --master local[4]
 
 ## Running Spark Streaming 
 
