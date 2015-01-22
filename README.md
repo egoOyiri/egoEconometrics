@@ -13,13 +13,13 @@ This project uses Apache Spark run on a Single Node Hadoop/Yarn.
   - Spark general engine for large-scale data processing 
 
 * Languages:
-  - Scala, Java and Python
+  - Scala and Python
 
 # Prerequisites:
 - wget
 - java (JVM)
 - *nix - Darwin, Cygwin (not yet)
-- Python (is running Python)
+- Python (if running Python)
 - sbt to run the Scala examples
 
 # Running the install:
