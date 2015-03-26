@@ -10,13 +10,13 @@ rm -rf ${ROOT_DIST}
 mkdir -p ${ROOT_DIST}
 
 # Installing Hadoop and Yarn
-HADOOP_VERSION=2.5.2
+HADOOP_VERSION=2.6.0
 wget http://mirror.reverse.net/pub/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz -O ${ROOT_DIST}/hadoop-${HADOOP_VERSION}.tar.gz
 tar zxvf ${ROOT_DIST}/hadoop-${HADOOP_VERSION}.tar.gz -C ${ROOT_DIST}
 ln -s ${ROOT_DIST}/hadoop-${HADOOP_VERSION} ${ROOT_DIST}/hadoop
 rm ${ROOT_DIST}/hadoop-${HADOOP_VERSION}.tar.gz
 
-SPARK_VERSION=1.2.0
+SPARK_VERSION=1.3.0
 HADOOP_SPARK_VERSION=2.4
 wget http://www.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_SPARK_VERSION}.tgz  -O ${ROOT_DIST}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_SPARK_VERSION}.tgz
 tar zxvf ${ROOT_DIST}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_SPARK_VERSION}.tgz -C ${ROOT_DIST}
